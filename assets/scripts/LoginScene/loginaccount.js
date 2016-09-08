@@ -1,4 +1,4 @@
-var PB_login = require('PB_Login_pb');
+var message_pb = require('message_pb');
 
 cc.Class({
     extends: cc.Component,
@@ -32,13 +32,17 @@ cc.Class({
     },
 
     loginServer: function(accout, password) {
-        var message = new PB_login.CS11001();
-        message.setPlatformtype(1);
-        message.setPlatformaccountid(accout);
-        message.setAuthid(password);
-        message.setClienttype("Web");//客户端类型：“IOS”，“ANDROID”,“WEB”
-        message.setUuid("zxlcvkjoliuapdif");//客户端唯一标示(IOS为UUID，ANDROID为IMEI，PC为MAC地址)
+        var router = new message_pb.CS11001();
+        router.setPlatformtype(1);
+        router.setPlatformaccountid(accout);
+        router.setAuthid(password);
+        router.setClienttype("Web");//客户端类型：“IOS”，“ANDROID”,“WEB”
+        router.setUuid("zxlcvkjoliuapdif");//客户端唯一标示(IOS为UUID，ANDROID为IMEI，PC为MAC地址)
 
+        var message = new message_pb.PB_CommonMsg
+        message.setMsgid(1);
+        message.setOpcode(message_pb.CS11001.PacketType.PB_PACKTYPE);
+        message.setMsgbuf(router.serializeBinary());
         var bitdatas = message.serializeBinary();
 
         var xhr = new cc.loader.getXMLHttpRequest();
@@ -51,7 +55,7 @@ cc.Class({
         xhr.open("POST", "127.0.0.1:10086", true);
         xhr.send(bitdatas);
         
-        console.log(message.getPlatformaccountid());
+        console.log(router.getPlatformaccountid());
     }
 
     // called every frame, uncomment this function to activate update callback
