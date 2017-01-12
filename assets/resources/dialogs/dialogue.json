@@ -1,0 +1,31 @@
+{
+    "dialogues":{
+        "1":{
+            "scequencesdialogue":["哈1,1","哈1,2","哈1,3"],
+            "options":{
+                "optionsdialogue":["o1","o2","o3"],
+                "out":["2,3,4"]
+            }
+        },
+        "2":{
+            "scequencesdialogue":["哈2,1","哈2,2","哈2,3"],
+            "options":{
+                "optionsdialogue":["o3","o4"],
+                "out":["3,4"]
+            }
+        },
+        "3":{
+            "scequencesdialogue":["哈3,1","哈3,2","哈3,3"]
+        },
+        "4":{
+            "scequencesdialogue":["哈4,1","哈4,2","哈4,3"],
+            "options":{
+                "optionsdialogue":["o5"],
+                "out":["5"]
+            }
+        },
+        "5":{
+            "scequencesdialogue":["哈1,1","哈5,2"]
+        }
+    }
+}

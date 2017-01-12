@@ -1,0 +1,8 @@
+{
+  "Directory" : "log/",
+  "FileName"  : "log",
+  "ExtName"   : ".txt",
+  "AddTime"   : true,
+  "RecordLevel" : "DEBUG",
+  "MaxSize"   : 1048576
+}
